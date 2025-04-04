@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Directory where the script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+JAR_PATH="$SCRIPT_DIR/build/libs/js3utils-0.1.0-SNAPSHOT.jar"
+
+# Build the project if the JAR doesn't exist
+if [ ! -f "$JAR_PATH" ]; then
+    echo "Building project..."
+    "$SCRIPT_DIR/gradlew" build
+fi
+
+# Run the JAR with all arguments passed to this script
+java -jar "$JAR_PATH" "$@"

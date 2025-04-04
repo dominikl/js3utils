@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'biongff.js3utils'
+version = '0.1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'info.picocli:picocli:4.7.5'
+    implementation 'io.minio:minio:8.5.7'
+    annotationProcessor 'info.picocli:picocli-codegen:4.7.5'
+}
+
+application {
+    mainClass = 'biongff.js3utils.Cli'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'biongff.js3utils.Cli',
+            'Implementation-Title': 'JS3Utils',
+            'Implementation-Version': version
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    exclude 'META-INF/*.RSA'
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
