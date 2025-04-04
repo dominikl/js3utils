@@ -11,7 +11,7 @@ import picocli.CommandLine.Spec;
 @Command(
     name = "js3utils",
     description = "JS3Utils - Java S3 Utilities",
-    version = "0.1.0",
+    version = "0.1.1-SNAPSHOT",
     mixinStandardHelpOptions = true
 )
 public class Cli implements Runnable {
