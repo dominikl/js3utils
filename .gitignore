@@ -27,5 +27,8 @@ build/
 *.tar.gz
 *.rar
 
+# Other
+.DS_Store
+
 # virtual machine crash logs
 hs_err_pid*
