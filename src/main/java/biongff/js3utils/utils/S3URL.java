@@ -14,6 +14,10 @@ public class S3URL {
     private String folder;
     
     public S3URL(String url) {
+        url = url.trim();
+        if (url.endsWith("/")) {
+            url = url.substring(0, url.length() - 1);
+        }
         Matcher matcher = S3_URL_PATTERN.matcher(url);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Invalid S3 URL format: " + url);
