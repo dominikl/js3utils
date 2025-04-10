@@ -14,6 +14,7 @@ dependencies {
     implementation 'info.picocli:picocli:4.7.5'
     implementation 'io.minio:minio:8.5.7'
     annotationProcessor 'info.picocli:picocli-codegen:4.7.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 }
 
 application {
